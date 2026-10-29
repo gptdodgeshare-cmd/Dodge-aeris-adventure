@@ -1,1 +1,43 @@
-<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dodge Aeris Camera Prototype</title><style>body{margin:0;overflow:hidden;font:14px sans-serif}#ui{position:absolute;top:12px;left:12px;background:#ffffffe0;padding:12px;border-radius:10px}button,select{font:inherit}canvas{display:block;touch-action:none}</style><div id="ui"><b>Dodge Aeris — 3D Prototype</b><p>แตะพื้นเพื่อเดิน | ลากเพื่อหมุนกล้อง 360° | WASD เดิน | Scroll ซูม</p><select id="mode"><option value="free">Free Camera</option><option value="fixed">Fixed Camera</option><option value="follow">Follow Camera</option></select><button id="reset">Reset</button></div><script type="module" src="./game.js"></script></html>
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#142d35">
+  <title>Dodge Aeris Adventure — Neo Gear City</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game" aria-label="Dodge Aeris Adventure — เมืองสามมิติ"></main>
+  <header id="ui" class="hud panel">
+    <div class="eyebrow"><span class="brand-mark">✦</span> DODGE AERIS <span class="live-label">ADVENTURE</span></div>
+    <h1 id="map-name">Neo Gear City</h1>
+    <p id="map-subtitle">เมืองแห่งพลังงานและนักประดิษฐ์</p>
+    <div class="player-line"><span id="profession">Adventurer</span><span class="coin">◈ <b id="credits">200</b></span></div>
+  </header>
+  <aside class="map-panel panel" aria-label="แผนที่ย่อ">
+    <div class="map-heading"><span>AREA MAP</span><span id="map-coordinates">0, 0</span></div>
+    <canvas id="minimap" width="180" height="180" aria-label="ตำแหน่งผู้เล่น จุดสำคัญ และประตูวาร์ป"></canvas>
+    <div class="map-key"><span>● คุณ</span><span>◆ วาร์ป</span></div>
+  </aside>
+  <div id="loading" class="loading" role="status"><div class="loading-gem">✦</div><strong>กำลังเข้าเมือง…</strong></div>
+  <div id="status" class="status" role="status" aria-live="polite">แตะพื้นเพื่อเดิน · ลากเพื่อมองรอบตัว</div>
+  <nav class="camera-controls panel" aria-label="กล้องและการควบคุม">
+    <label for="mode">กล้อง</label>
+    <select id="mode"><option value="free">Free Camera</option><option value="fixed">Fixed Camera</option><option value="follow">Follow Camera</option></select>
+    <button id="reset" title="คืนมุมกล้อง">↺ <span>Reset</span></button>
+    <button id="help-toggle" aria-expanded="false" aria-controls="help">?</button>
+  </nav>
+  <div id="help" class="help panel" hidden>แตะหรือคลิกพื้นเพื่อเดิน · ลากเพื่อหมุนกล้อง 360°<br>สองนิ้วเลื่อนเพื่อมอง / จีบเพื่อซูม · WASD เดิน · Scroll ซูม<br>เข้าใกล้ NPC แล้วกดสนทนา หรือกด E<br>เดินผ่านวงประตูวาร์ปเพื่อเปลี่ยนเมือง</div>
+  <button id="interact" class="interact" hidden>สนทนา <span>E</span></button>
+  <section id="dialog-panel" class="dialog panel" role="dialog" aria-modal="true" aria-labelledby="dialog-title" hidden>
+    <button id="dialog-close" class="close" aria-label="ปิดบทสนทนา">×</button>
+    <div id="dialog-role" class="eyebrow">NEO GEAR CITY</div>
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-text"></p>
+    <div id="dialog-actions"></div>
+    <div id="inventory-summary" class="inventory-summary"></div>
+  </section>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

@@ -1,33 +1,47 @@
-# Dodge Aeris — 3D Camera Prototype
+# Dodge Aeris Adventure — Neo Gear City
 
-เกมต้นแบบ Three.js รองรับ GitHub Pages โดยไม่ต้อง build หรือใช้ CDN
+เกม 3D Fantasy Technology บน Three.js ใช้ GitHub Pages ได้โดยไม่ต้อง build
+หรือใช้ CDN และไม่ต้องมี backend
 
-- แตะ/คลิกพื้นเพื่อเดินไปยังจุดนั้น จุดสีขาวแสดงเป้าหมาย
-- ลากนิ้ว/เมาส์เพื่อหมุนกล้องรอบตัวละครในโหมด Free; การลากไม่สั่งเดิน
-- WASD เดินบนคอมพิวเตอร์ และยกเลิกเป้าหมายจากการแตะ
-- Free หมุนกล้องอิสระ, Fixed ล็อกมุมกล้อง, Follow ติดตามทิศตัวละคร
-- Scroll ซูม และ Reset คืนมุมกล้อง
-- ยกเลิกท่าทางหรือใช้หลายนิ้วจะไม่สั่งเดิน
+- เมือง Neo Gear City: จัตุรัส น้ำพุพลังงาน หอพลังงาน โรงงาน ศูนย์วิจัย
+  ห้องทดลอง ตลาด และเขตทะเลทรายจักรกลนอกเมือง
+- NPC แนะนำเมือง เปลี่ยนอาชีพ Cyborg / Inventor ร้านอาวุธ ร้านเกราะ ร้านไอเทม
+  และผู้ดูแลประตูวาร์ป พร้อมบทสนทนาและการซื้อด้วยเหรียญในเกม
+- เดินผ่านประตูไปลานต้อนรับ Elim และเดินผ่านประตูกลับได้
+- มือถือแตะพื้นเพื่อเดิน ลากเพื่อหมุน 360° สองนิ้วเพื่อหมุน/ซูม ไม่ใช้จอยสติ๊ก
+- คอมพิวเตอร์ใช้ WASD เมาส์ และ Scroll; มี Free / Fixed / Follow Camera
+- การชนอาคาร กำแพง และขอบฉาก พร้อมหาเส้นทางเดินอ้อมสิ่งกีดขวาง
+- ตัวละครและ Animation เดิมยังอยู่ เพิ่มอุปกรณ์แยกชิ้นและแผนที่ย่อ
 
-## Run locally
+## เริ่มเล่นในเครื่อง
 
-From this directory: `python3 -m http.server 8000 --bind 127.0.0.1`.
-Open the served page in a WebGL-capable browser. No backend or credentials required.
+จากโฟลเดอร์ repository รัน `python3 -m http.server 8000 --bind 127.0.0.1`
+แล้วเปิดหน้าเว็บจากเซิร์ฟเวอร์ในเบราว์เซอร์ที่รองรับ WebGL
+
+เข้าใกล้ NPC แล้วกดปุ่มสนทนาหรือ E สินค้าใช้เหรียญในเกม ไม่มีการจ่ายเงินจริง
+ความคืบหน้าบันทึกในเบราว์เซอร์นี้ ยังไม่มีระบบบัญชีหรือ multiplayer
+มอนสเตอร์ในเขตนอกเมืองเคลื่อนไหวได้ แต่ยังไม่มีระบบต่อสู้
 
 ## GitHub Pages
 
-Repository Settings → Pages → Build and deployment → Deploy from a branch →
-`main` / `/ (root)` → Save. All runtime assets use relative paths, including
-`vendor/three.module.min.js` (Three.js 0.170.0, MIT; license included).
-The vendored module came from the official npm archive with its npm SHA-512
-integrity verified. No third-party network requests are needed to play.
-The ZIP is an older prototype archive; the root HTML and game.js are the current game.
+Settings → Pages → Deploy from a branch → `main` / `/ (root)` → Save.
+ไฟล์เกมใช้ relative paths ทั้งหมด รวม Three.js 0.170.0 ที่เก็บไว้ใน `vendor/`
+พร้อมใบอนุญาต MIT ไม่ต้องติดตั้งแพ็กเกจเพื่อเล่นหรือเพิ่มบริการเสียเงิน
+ไฟล์ ZIP เดิมเป็นต้นแบบเก่า เกมปัจจุบันเริ่มจาก index.html และ game.js
 
-## Browser regression checks
+## ทดสอบ
 
-With Playwright installed and Chromium at `/usr/bin/chromium`, start the local
-server and run `node tests/browser.cjs`. Set `GAME_URL` to test another deployment.
-The test uses real Chromium touch events and WebGL software rendering, checks
-world-space arrival, drag without movement, full rotation, WASD override,
-mode persistence, cancellation and JavaScript errors. Test instrumentation is
-injected into the browser response only and is not part of the production game.
+เปิดเซิร์ฟเวอร์ค้างไว้ แล้วใช้ Node.js กับ Playwright และ Chromium:
+
+```sh
+node tests/navigation.cjs
+node tests/browser.cjs
+node tests/city.cjs
+```
+
+กำหนด `GAME_URL` เพื่อทดสอบเว็บที่เผยแพร่แล้ว
+ชุดทดสอบเมืองครอบคลุมการเดิน กล้อง Collision NPC ร้านค้า วาร์ป
+การปล่อยทรัพยากรแผนที่เดิม และภาระงานกราฟิก พร้อมบันทึกภาพและผลที่ `/tmp/`
+การทดสอบสัมผัสใช้ Chromium จำลองมือถือ ไม่ใช่ผลทดสอบบนโทรศัพท์จริง
+
+ดูรายละเอียดฉาก ข้อจำกัด และโครงสร้างใน [docs/neo-gear-city.md](docs/neo-gear-city.md)

@@ -2,14 +2,15 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 (async()=>{
- const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ const remote=process.env.GAME_URL&&!/^https?:\/\/(localhost|127\.0\.0\.1)(:|\/)/.test(process.env.GAME_URL);
+ const browser=await chromium.launch({...((remote&&(process.env.HTTPS_PROXY||process.env.HTTP_PROXY))?{proxy:{server:process.env.HTTPS_PROXY||process.env.HTTP_PROXY,bypass:'localhost,127.0.0.1'}}:{}),executablePath:'/usr/bin/chromium',args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  try {
  const context=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
  const page=await context.newPage(); const errors=[];page.on('pageerror',e=>errors.push(e.message));
  // Instrument only the test response; production has no testing globals.
  await page.route('**/game.js',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text())+`\nwindow.probe={snapshot:()=>({position:player.position.toArray(),destination:destination.toArray(),walking:walkingToPoint,yaw,pitch}),project:(x,z)=>{const v=new T.Vector3(x,0,z).project(camera);return {x:(v.x+1)*innerWidth/2,y:(1-v.y)*innerHeight/2}},pixel:()=>{renderer.render(scene,camera);const gl=renderer.getContext(),p=new Uint8Array(4);gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,p);return [...p]}};`});});
  await page.goto(process.env.GAME_URL||'http://127.0.0.1:8000/');await page.waitForFunction(()=>window.probe);await page.waitForTimeout(500);
- assert.equal(await page.locator('canvas').count(),1);assert((await page.evaluate(()=>probe.pixel())).some((v,i)=>i<3&&v>0));console.log('PASS WebGL render and local Three.js');
+ assert.equal(await page.locator('#game > canvas').count(),1);assert((await page.evaluate(()=>probe.pixel())).some((v,i)=>i<3&&v>0));console.log('PASS WebGL render and local Three.js');
  const snap=()=>page.evaluate(()=>probe.snapshot());
  let point=await page.evaluate(()=>probe.project(2,1));await page.touchscreen.tap(point.x,point.y);
  await page.waitForFunction(()=>!probe.snapshot().walking);let state=await snap();assert(Math.hypot(state.position[0]-2,state.position[2]-1)<.08);console.log('PASS touch raycast and arrival at exact ground destination');
