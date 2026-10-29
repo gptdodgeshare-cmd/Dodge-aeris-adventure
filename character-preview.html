@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eae5dc">
+  <title>Character Atelier — Dodge Aeris Adventure</title>
+  <link rel="stylesheet" href="./character-preview.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="./index.html" aria-label="กลับเกม Dodge Aeris Adventure"><span class="brand-icon">✦</span><span>DODGE AERIS<small>CHARACTER ATELIER</small></span></a>
+    <div class="title-group"><h1>Two heroes. One shared standard.</h1><p>ต้นแบบสามมิติเพื่อตรวจเทียบกับ Character Reference Sheet</p></div>
+    <span class="draft-badge"><span></span> VISUAL REVIEW · V1</span>
+  </header>
+  <main class="workspace">
+    <section class="viewer-panel" aria-label="เปรียบเทียบโมเดลชายและหญิงสามมิติ">
+      <div class="viewer-toolbar"><div class="stage-label"><span class="tiny-square"></span> REFERENCE STUDY <span class="divider">/</span> <span id="view-label">FRONT</span></div><button id="view-reset" class="quiet-button" aria-label="คืนมุมกล้องและระยะเริ่มต้น">↺ <span>Reset view</span></button></div>
+      <div id="preview-stage" aria-label="ลากเพื่อหมุนโมเดล จีบนิ้วหรือเลื่อนล้อเมาส์เพื่อซูม" tabindex="0">
+        <div class="floor-caption" aria-hidden="true"><span id="male-stage-label">MALE_BASE_V1</span><span id="female-stage-label">FEMALE_BASE_V1</span></div>
+        <div id="load-overlay" class="load-overlay" role="status"><div class="loading-emblem">✦</div><strong id="load-status">กำลังโหลดโมเดลสามมิติ…</strong><p id="load-detail">กำลังเตรียมตัวละครและโครงกระดูก</p><button id="retry-load" hidden>โหลดใหม่</button></div>
+      </div>
+      <nav class="view-bar" aria-label="มุมมองมาตรฐาน">
+        <button id="view-front" data-view="front" aria-pressed="true"><span class="view-symbol">◉</span> หน้า <small>FRONT</small></button>
+        <button id="view-left" data-view="left" aria-pressed="false"><span class="view-symbol">◐</span> ซ้าย <small>LEFT</small></button>
+        <button id="view-back" data-view="back" aria-pressed="false"><span class="view-symbol">○</span> หลัง <small>BACK</small></button>
+        <button id="view-right" data-view="right" aria-pressed="false"><span class="view-symbol">◑</span> ขวา <small>RIGHT</small></button>
+      </nav>
+      <div class="viewer-footnote"><span>ลากเพื่อหมุน 360° · Scroll / จีบนิ้วเพื่อซูม</span><span id="render-detail">REAL 3D · WEBGL</span></div>
+    </section>
+    <aside class="inspector" aria-label="ตัวเลือกตรวจโมเดลและแอนิเมชัน">
+      <section class="inspector-section">
+        <div class="section-number">01 <span>BASE MODELS</span></div>
+        <label class="field-label" for="gender-select">ตัวละครที่แสดง</label>
+        <select id="gender-select"><option value="both">ชายและหญิง · เปรียบเทียบ</option><option value="male">Male_Base_V1 · ชาย</option><option value="female">Female_Base_V1 · หญิง</option></select>
+        <div class="height-readout"><div><span>Male</span><strong id="male-height">—</strong></div><div><span>Female</span><strong id="female-height">—</strong></div></div>
+        <p id="height-difference" class="measurement-note">รอวัดจาก Mesh จริง</p>
+        <p class="fine-print">วัดพื้นถึงยอดกะโหลกในท่ายืนพัก ไม่รวมปลายผม</p>
+      </section>
+      <section class="inspector-section">
+        <div class="section-number">02 <span>MOTION STUDY</span></div>
+        <label class="field-label" for="animation-select">แอนิเมชัน</label>
+        <div class="animation-row"><select id="animation-select"><option>Idle</option><option>Walk</option><option>Run</option><option>Attack</option><option>Hit</option><option>Death</option></select><button id="play-pause" class="play-button" aria-label="หยุดแอนิเมชันชั่วคราว" aria-pressed="false">Ⅱ</button></div>
+        <div class="speed-field"><label for="animation-speed">ความเร็ว</label><input type="range" id="animation-speed" min="0.25" max="1.5" step="0.25" value="1"><output id="speed-value" for="animation-speed">1×</output></div>
+        <div class="inspect-toggles"><label><input id="show-guides" type="checkbox" checked><span>เส้นความสูงและพื้น</span></label><label><input id="show-wireframe" type="checkbox"><span>Wireframe</span></label><label><input id="show-rig" type="checkbox"><span>Skeleton</span></label></div>
+      </section>
+      <section class="inspector-section equipment-section">
+        <div class="section-number">03 <span>ATTACHMENT STUDY</span></div>
+        <p class="section-description">ทดสอบชิ้นอุปกรณ์แยกจาก Base Body</p>
+        <div class="equipment-buttons"><button id="equip-mainweapon" aria-pressed="false">ดาบ · มือขวา</button><button id="equip-offhand" aria-pressed="false">โล่ · มือซ้าย</button><button id="equip-armor" aria-pressed="false">เกราะ · ลำตัว</button><button id="equip-clear" class="quiet-button">คืนชุดพื้นฐาน ↺</button></div>
+        <p class="fine-print">อุปกรณ์ในหน้านี้เป็นชิ้นทดสอบ จุดเริ่มต้นแสดงชุดพื้นฐานโดยไม่สวมอาวุธหรือเกราะ</p>
+      </section>
+      <section class="review-note"><span>✦</span><div><strong>ต้นแบบสำหรับรีวิว</strong><p>สร้างโดยอ้างอิงภาพที่คุณให้เท่านั้น ยังไม่ผ่านการอนุมัติความเหมือน และยังไม่แทนตัวละครใน Neo Gear City</p></div></section>
+    </aside>
+  </main>
+  <footer class="page-footer"><span>ORIGINAL 3D ASSETS · SHARED SKELETAL RIG</span><a href="./index.html">กลับ Neo Gear City ↗</a></footer>
+  <script type="module" src="./character-preview.js"></script>
+</body>
+</html>
