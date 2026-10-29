@@ -1,0 +1,334 @@
+{
+  "status": "passed",
+  "scope": "Structural asset gate; visual fidelity still requires user review",
+  "models": {
+    "male": {
+      "file": "Male_Base_V1.glb",
+      "bytes": 1516300,
+      "height": 2.999999523162842,
+      "headHeight": 0.9999995231628418,
+      "headRatio": 0.33333322736950355,
+      "feetBottom": 0.0,
+      "triangles": 48908,
+      "skinnedMeshes": 39,
+      "materials": 15,
+      "bones": [
+        "Root",
+        "Pelvis",
+        "Spine",
+        "Chest",
+        "Neck",
+        "Head",
+        "UpperArm_L",
+        "Forearm_L",
+        "Hand_L",
+        "Offhand_LeftHand",
+        "UpperArm_R",
+        "Forearm_R",
+        "Hand_R",
+        "MainWeapon_RightHand",
+        "Thigh_L",
+        "Shin_L",
+        "Foot_L",
+        "Thigh_R",
+        "Shin_R",
+        "Foot_R"
+      ],
+      "jointPositions": {
+        "Root": [
+          0,
+          0,
+          0
+        ],
+        "Pelvis": [
+          0.0,
+          1.2999999523162842,
+          0.0
+        ],
+        "Spine": [
+          0.0,
+          1.4800000190734863,
+          0.0
+        ],
+        "Chest": [
+          0.0,
+          1.6799999475479126,
+          0.0
+        ],
+        "Neck": [
+          0.0,
+          1.940000057220459,
+          0.0
+        ],
+        "Head": [
+          0.0,
+          2.200000047683716,
+          0.0
+        ],
+        "UpperArm_L": [
+          0.4300000071525574,
+          1.899999976158142,
+          0.0
+        ],
+        "Forearm_L": [
+          0.6299999153412673,
+          1.5299998499023109,
+          -1.5401556793762495e-08
+        ],
+        "Hand_L": [
+          0.689999922185351,
+          1.1799998067813342,
+          -2.57776032186658e-08
+        ],
+        "Offhand_LeftHand": [
+          0.6999998803328895,
+          1.0699996311022444,
+          0.014999997753189115
+        ],
+        "UpperArm_R": [
+          -0.4300000071525574,
+          1.899999976158142,
+          0.0
+        ],
+        "Forearm_R": [
+          -0.6299999153412673,
+          1.5299998499023109,
+          -1.5401556793762495e-08
+        ],
+        "Hand_R": [
+          -0.689999922185351,
+          1.1799998067813342,
+          -2.57776032186658e-08
+        ],
+        "MainWeapon_RightHand": [
+          -0.6999998803328895,
+          1.0699996311022444,
+          0.014999997753189115
+        ],
+        "Thigh_L": [
+          0.20000000298023224,
+          1.2999999523162842,
+          0.0
+        ],
+        "Shin_L": [
+          0.20000000298023224,
+          0.7200000286102272,
+          0.0
+        ],
+        "Foot_L": [
+          0.20000000298023224,
+          0.15999999999999914,
+          0.0
+        ],
+        "Thigh_R": [
+          -0.20000000298023224,
+          1.2999999523162842,
+          0.0
+        ],
+        "Shin_R": [
+          -0.20000000298023224,
+          0.7200000286102272,
+          0.0
+        ],
+        "Foot_R": [
+          -0.20000000298023224,
+          0.15999999999999914,
+          0.0
+        ]
+      },
+      "fingerNodes": [
+        "Male_Mesh_Hand_L_finger_Index",
+        "Male_Mesh_Hand_L_finger_Little",
+        "Male_Mesh_Hand_L_finger_Middle",
+        "Male_Mesh_Hand_L_finger_Ring",
+        "Male_Mesh_Hand_L_finger_Thumb",
+        "Male_Mesh_Hand_R_finger_Index",
+        "Male_Mesh_Hand_R_finger_Little",
+        "Male_Mesh_Hand_R_finger_Middle",
+        "Male_Mesh_Hand_R_finger_Ring",
+        "Male_Mesh_Hand_R_finger_Thumb"
+      ],
+      "clips": {
+        "Idle": 2.0,
+        "Walk": 1.0,
+        "Run": 0.6666666865348816,
+        "Attack": 0.8333333134651184,
+        "Hit": 0.5,
+        "Death": 1.3333333730697632
+      },
+      "rootHorizontalDrift": {
+        "Idle": 0.0,
+        "Walk": 0.0,
+        "Run": 0.0,
+        "Attack": 0.0,
+        "Hit": 0.0,
+        "Death": 0.0
+      },
+      "visualLikenessApproved": false
+    },
+    "female": {
+      "file": "Female_Base_V1.glb",
+      "bytes": 1767688,
+      "height": 2.999999523162842,
+      "headHeight": 0.9999995231628418,
+      "headRatio": 0.33333322736950355,
+      "feetBottom": 0.0,
+      "triangles": 57776,
+      "skinnedMeshes": 40,
+      "materials": 15,
+      "bones": [
+        "Root",
+        "Pelvis",
+        "Spine",
+        "Chest",
+        "Neck",
+        "Head",
+        "UpperArm_L",
+        "Forearm_L",
+        "Hand_L",
+        "Offhand_LeftHand",
+        "UpperArm_R",
+        "Forearm_R",
+        "Hand_R",
+        "MainWeapon_RightHand",
+        "Thigh_L",
+        "Shin_L",
+        "Foot_L",
+        "Thigh_R",
+        "Shin_R",
+        "Foot_R"
+      ],
+      "jointPositions": {
+        "Root": [
+          0,
+          0,
+          0
+        ],
+        "Pelvis": [
+          0.0,
+          1.2999999523162842,
+          0.0
+        ],
+        "Spine": [
+          0.0,
+          1.4800000190734863,
+          0.0
+        ],
+        "Chest": [
+          0.0,
+          1.6799999475479126,
+          0.0
+        ],
+        "Neck": [
+          0.0,
+          1.940000057220459,
+          0.0
+        ],
+        "Head": [
+          0.0,
+          2.200000047683716,
+          0.0
+        ],
+        "UpperArm_L": [
+          0.4300000071525574,
+          1.899999976158142,
+          0.0
+        ],
+        "Forearm_L": [
+          0.6299999153412673,
+          1.5299998499023109,
+          -1.5401556793762495e-08
+        ],
+        "Hand_L": [
+          0.689999922185351,
+          1.1799998067813342,
+          -2.57776032186658e-08
+        ],
+        "Offhand_LeftHand": [
+          0.6999998803328895,
+          1.0699996311022444,
+          0.014999997753189115
+        ],
+        "UpperArm_R": [
+          -0.4300000071525574,
+          1.899999976158142,
+          0.0
+        ],
+        "Forearm_R": [
+          -0.6299999153412673,
+          1.5299998499023109,
+          -1.5401556793762495e-08
+        ],
+        "Hand_R": [
+          -0.689999922185351,
+          1.1799998067813342,
+          -2.57776032186658e-08
+        ],
+        "MainWeapon_RightHand": [
+          -0.6999998803328895,
+          1.0699996311022444,
+          0.014999997753189115
+        ],
+        "Thigh_L": [
+          0.20000000298023224,
+          1.2999999523162842,
+          0.0
+        ],
+        "Shin_L": [
+          0.20000000298023224,
+          0.7200000286102272,
+          0.0
+        ],
+        "Foot_L": [
+          0.20000000298023224,
+          0.15999999999999914,
+          0.0
+        ],
+        "Thigh_R": [
+          -0.20000000298023224,
+          1.2999999523162842,
+          0.0
+        ],
+        "Shin_R": [
+          -0.20000000298023224,
+          0.7200000286102272,
+          0.0
+        ],
+        "Foot_R": [
+          -0.20000000298023224,
+          0.15999999999999914,
+          0.0
+        ]
+      },
+      "fingerNodes": [
+        "Female_Mesh_Hand_L_finger_Index",
+        "Female_Mesh_Hand_L_finger_Little",
+        "Female_Mesh_Hand_L_finger_Middle",
+        "Female_Mesh_Hand_L_finger_Ring",
+        "Female_Mesh_Hand_L_finger_Thumb",
+        "Female_Mesh_Hand_R_finger_Index",
+        "Female_Mesh_Hand_R_finger_Little",
+        "Female_Mesh_Hand_R_finger_Middle",
+        "Female_Mesh_Hand_R_finger_Ring",
+        "Female_Mesh_Hand_R_finger_Thumb"
+      ],
+      "clips": {
+        "Idle": 2.0,
+        "Walk": 1.0,
+        "Run": 0.6666666865348816,
+        "Attack": 0.8333333134651184,
+        "Hit": 0.5,
+        "Death": 1.3333333730697632
+      },
+      "rootHorizontalDrift": {
+        "Idle": 0.0,
+        "Walk": 0.0,
+        "Run": 0.0,
+        "Attack": 0.0,
+        "Hit": 0.0,
+        "Death": 0.0
+      },
+      "visualLikenessApproved": false
+    }
+  }
+}

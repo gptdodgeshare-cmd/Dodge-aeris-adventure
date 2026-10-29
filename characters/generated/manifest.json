@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "unit": "game-unit",
+  "draft": true,
+  "reference": "User-supplied Character Reference Sheet only",
+  "models": {
+    "male": {
+      "file": "Male_Base_V1.glb",
+      "name": "Male_Base_V1",
+      "baseHeight": 3.0,
+      "skullTop": 3.0,
+      "headHeight": 1.0,
+      "draft": true,
+      "triangles": 48908,
+      "materials": 15,
+      "meshCount": 39
+    },
+    "female": {
+      "file": "Female_Base_V1.glb",
+      "name": "Female_Base_V1",
+      "baseHeight": 3.0,
+      "skullTop": 3.0,
+      "headHeight": 1.0,
+      "draft": true,
+      "triangles": 57776,
+      "materials": 15,
+      "meshCount": 40
+    }
+  }
+}
